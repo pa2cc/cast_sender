@@ -4,42 +4,42 @@
 <head>
     <title>PACC</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-    <script type="text/javascript" src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/ng-websocket/ng-websocket.js"></script>
+
+    <script src="https://www.gstatic.com/cv/js/sender/v1/cast_sender.js?loadCastFramework=1"></script>
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/webrtc-adapter/release/adapter.js"></script>
     
     <script src="js/app.js"></script>
     <script src="js/controller_pacc.js"></script>
     <script src="js/service_ccconnector.js"></script>
     <script src="js/service_paconnector.js"></script>
+    <script src="js/service_webrtc.js"></script>
 </head>
 
 <body ng-controller="PACCCtrl">
     <header>
-        Welcome to PACC
+        <span>Welcome to PACC</span>
+        <button is="google-cast-button"></button>
     </header>
 
     <section>
-        <div
-            class="status"
-            ng-class="PAConnector.connected ? 'yes' : 'no'">
-            Connection to pulseaudio:
+        <div class="status" ng-class="PAConnector.isConnected() ? 'yes' : 'no'">
+            Connection to PulseAudio:
             
-            <div class="help" ng-hide="PAConnector.connected">
-                Make sure that you have loaded the pulseaudio module and
-                accepted the locally generated SSL key.
+            <div class="help" ng-hide="PAConnector.isConnected()">
+                Make sure that you have loaded the PulseAudio module and
+                allow this page to access your microphone.
             </div>
         </div>
 
-        <div
-            class="status"
-            ng-class="CCConnector.connected ? 'yes' : 'no'">
-            Connection to chromecast:
+        <div class="status" ng-class="CCConnector.isConnected() ? 'yes' : 'no'">
+            Connection to Chromecast:
         </div>
 
         <div id="info">
             Please keep this window open to allow communication between
-            pulseaudio and chromecast.
+            PulseAudio and Chromecast.
         </div>
     </section>
 </body>
