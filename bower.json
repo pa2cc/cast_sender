@@ -1,5 +1,5 @@
 {
-  "name": "PACC_sender",
+  "name": "pacc_sender",
   "version": "1.1.0",
   "homepage": "https://github.com/pa2cc/cast_sender",
   "authors": [
@@ -8,7 +8,7 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
-    "angular": "~1.3.14",
-    "ng-websocket": "#ecbdac7ec14aa0e47b9dad4cb29152c658ddaad3"
+    "angular": "^1.3.0",
+    "webrtc-adapter": "^6.0.2"
   }
 }

@@ -20,9 +20,21 @@ body {
 }
 
 header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 230%;
     margin: 0 50px;
 }
+header>* {
+    margin: 0 10px;
+}
+
+button[is="google-cast-button"] {
+    width: 40px;
+    height: 40px;
+}
+
 
 section {
     margin: 20px 100px 0;
@@ -30,23 +42,23 @@ section {
     line-height: 1.5;
 }
 
-section .status {
+.status {
     width: 230px;
     margin: 0 auto;
+    padding: 0 23px;
+    background: transparent no-repeat right 4px;
 }
-section .status .help {
+.status.yes {
+    background-image: url(../res/yes.png);
+}
+.status.no {
+    background-image: url(../res/no.png);
+}
+
+.status .help {
     font-size: 70%;
     padding: 0 0 14px 15px;
     text-align: left;
-}
-
-.yes {
-    background: transparent url(../res/yes.png) no-repeat right 4px;
-    padding: 0 23px;
-}
-.no {
-    background: transparent url(../res/no.png) no-repeat right 4px;
-    padding: 0 23px;
 }
 
 #info {
